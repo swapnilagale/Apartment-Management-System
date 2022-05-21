@@ -7,17 +7,11 @@ from django.http import Http404
 from rest_framework import status
 
 
-
-
-
-
-
-
-
 class ApartmentList(APIView):
 
     def get(self,request):
         apartments = Apartment.objects.all()
+        print(apartments)
         serializer = ApartmentSerializer(apartments, many=True)
         return Response(serializer.data)
 
